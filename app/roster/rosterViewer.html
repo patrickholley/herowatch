@@ -1,0 +1,9 @@
+<!--View for hero roster-->
+
+<div class="loader" ng-show="isFetching"></div>
+
+<section class="roster-container">
+    <div class="roster-card" ng-style="{'background-image': 'url({{getProfilePic(hero.id)}})'}"ng-repeat="hero in roster">
+        <div class="roster-card-name bnto">{{hero.name}}</div>
+    </div>
+</section>

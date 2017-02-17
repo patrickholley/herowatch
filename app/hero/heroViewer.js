@@ -1,0 +1,1 @@
+//Directive for manipulating hero pages

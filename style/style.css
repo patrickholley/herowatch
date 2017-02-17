@@ -1,0 +1,201 @@
+a {
+    text-decoration:none;
+}
+
+body {
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+    background-position:center;
+    min-height:100vh;
+}
+
+main {
+    padding-top:60px;
+    min-height:calc(100vh - 185px);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.blizz-logo img {
+    height:60px;
+    width:120px;
+}
+
+.break-button {
+    font-size:0.8rem;
+    width:120px;
+    color:white;
+    background-color:red;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:5px;
+}
+
+.buy-box {
+    width:120px;
+    height:60px;
+    border-radius:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    background-color:rgb(255, 175, 50);
+    color:white;
+}
+
+.buy-div {
+    width:100%;
+    height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.esrb img {
+    height:60px;
+    width:40px;
+}
+
+.fetching-data {
+    margin-top:5%;
+    font-size:2rem;
+}
+
+.hello-bar {
+    display:flex;
+}
+
+.hello-bar a {
+    width:auto;
+    margin-right:10px;
+    padding: 0 5px;
+}
+
+.hello-img {
+    height:200px;
+    width:auto;
+}
+
+.loader {
+    border: 16px solid rgb(210, 210, 235);
+    border-top: 16px solid rgb(65, 80, 115);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+.main-nav {
+    z-index:2;
+    position:fixed;
+    height:60px;
+    width:100%;
+    background-color:rgba(65, 80, 115, 0.85);
+}
+
+.marketing-footer {
+    height:120px;
+    width:100%;
+    background-color:black;
+    border-top:5px solid rgb(90, 90, 90);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.nav-links {
+    display:flex;
+    flex-direction:row;
+    float:left;
+    color:white;
+}
+    .nav-links img {
+        height:45px;
+        width:50px;
+    }
+    .nav-links li {
+        padding:5px 10px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:50px;
+        width:50px;
+    }
+    .nav-links a {
+        color:white;
+    }
+
+.role-bar {
+    display:flex;
+    min-width:60%;
+}
+
+.role-button {
+    width:20%;
+    min-width:50px;
+    max-width:150px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow: row wrap;
+    background-color:rgba(65, 80, 115, 1);
+    color: rgb(210, 210, 235);
+    margin-right:1px;
+}
+    .role-button img {
+        height:30px;
+        width:34px;
+    }
+
+.roster-card {
+    position:relative;
+    height:275px;
+    width:160px;
+    background-color:white;
+    margin:5px 10px 5px 0;
+    border:5px solid rgba(65, 80, 115, 0.85)
+}
+
+.roster-card-name {
+    z-index:1;
+    position:absolute;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    bottom:0;
+    width:100%;
+    height:20%;
+    font-size:2rem;
+    background-color:rgba(65, 80, 115, 0.85);
+    color:white;
+}
+
+.roster-container {
+    display:flex;
+    flex-flow:row wrap;
+    width:100%;
+}
+
+.welcome-div {
+    padding:2.5%;
+    width:90%;
+    color:rgb(65, 80, 115);
+}
+
+.welcome-head {
+    padding-bottom:2.5%;
+    font-size:3.5rem;
+}
+
+.welcome-message {
+    padding-bottom:2.5%;
+    font-size:1.5rem;
+    line-height:150%;
+    width:80%;
+}

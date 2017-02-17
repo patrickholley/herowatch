@@ -1,0 +1,49 @@
+<!--Should contain persistent elements including header, navbar, and footer-->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="herowatchApp">
+    <head>
+        <title>Herowatch</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style/reset.css" rel="stylesheet">
+        <link href="style/style.css" rel="stylesheet">
+        <link href="style/fonts.css" rel="stylesheet">        
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <nav class="main-nav">
+            <ul class="nav-links gib">
+                <li><a ui-sref="home"><img src="img/logo.png"></a></li>
+                <li><a ui-sref="roster">ROSTER</a></li>                
+                <li>LOGIN</li>
+            </ul>
+        </nav>
+
+        <main>
+            <ui-view></ui-view>
+        </main>
+
+        <footer>
+            <div class="marketing-footer">
+                <a href="http://us.blizzard.com/en-us/" class="blizz-logo"><img src="img/blizz_logo.png"></a>
+                <a href="https://playoverwatch.com/en-us/buy/" class="buy-box gib">BUY</a>
+                <a href="http://www.esrb.org/ratings/ratings_guide.aspx" class="esrb"><img src="img/esrb.png"></a>                
+            </div>
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+        <script src="app/firebaseConfig.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/heroData.js"></script>
+        <script src="app/heroData.js"></script>
+        <script src="app/roster/rosterViewer.js"></script>
+        <script src="app/login/loginCtrl.js"></script>
+        <script src="app/login/loginService.js"></script>
+        <script src="app/hero/heroCtrl.js"></script>
+        <script src="app/hero/heroViewer.js"></script>
+    </body>
+</html>
