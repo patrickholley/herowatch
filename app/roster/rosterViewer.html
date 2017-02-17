@@ -1,9 +1,22 @@
 <!--View for hero roster-->
 
+<div class="welcome-div">
+    <h1 class="welcome-head bnto">Need a hero?</h1>
+    <p class="welcome-message gib">Learn more about Overwatch's cast of characters, and how their abilities and powers can propel your team to victory.</p>
+    <div class="role-bar gib">
+        <a class="role-button" id="all" ng-click="sortRoster('all')">ALL</a>
+        <a class="role-button" id="offense" ng-click="sortRoster('offense')"><img src="img/offense.png">OFFENSE</a>
+        <a class="role-button" id="defense" ng-click="sortRoster('defense')"><img src="img/defense.png">DEFENSE</a>
+        <a class="role-button" id="tank" ng-click="sortRoster('tank')"><img src="img/tank.png">TANK</a>
+        <a class="role-button" id="support" ng-click="sortRoster('support')"><img src="img/support.png">SUPPORT</a>
+    </div>
+
 <div class="loader" ng-show="isFetching"></div>
 
 <section class="roster-container">
     <div class="roster-card" ng-style="{'background-image': 'url({{getProfilePic(hero.id)}})'}"ng-repeat="hero in roster">
-        <div class="roster-card-name bnto">{{hero.name}}</div>
+        <div class="roster-card-name {{extraAPI[hero.id - 1].role.name}} bnto"><img src='{{getHeroRole(hero)}}'/>{{hero.name}}</div>
     </div>
 </section>
+
+</div>
