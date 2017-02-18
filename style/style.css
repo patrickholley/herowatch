@@ -162,7 +162,7 @@ main {
 }
 
 .filtcards {
-    background-color:rgb(0, 190, 255) !important;
+    background-color:rgba(0, 190, 255, 0.85) !important;
 }
 
 .roster-card {
