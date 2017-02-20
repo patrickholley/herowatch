@@ -13,9 +13,13 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
                 url:'/hero/:id',
                 templateUrl: "app/hero/hero.html"
             })
-            .state('newsWriter', {
-                url:'/newswriter',
-                templateUrl: "app/newsWriter/newsWriter.html"
+            .state('news', {
+                url:'/news',
+                templateUrl: "app/news/news.html"
+            })
+            .state('writer', {
+                url:'/writer',
+                templateUrl: "app/writer/writer.html"
             })
             .state('article', {
                 url:'/article/:id',
@@ -1036,10 +1040,11 @@ angular.module('herowatchApp')
     return {
         templateUrl: 'app/hero/heroViewer.html',
         restrict: 'AE',
-        controller: function($scope, $stateParams, extraAPI, heroData) {
+        controller: function($scope, $stateParams, $window, extraAPI, heroData) {
             $scope.getLiveRoster = heroData.getLiveRoster()
             $scope.extraAPI = extraAPI.getExtraAPI()
             $scope.id = $stateParams.id
+            if ($scope.id > 23) $scope.id = 23
         },
         link: function( scope, element, attributes ) {
             scope.isFetching = true
@@ -1073,23 +1078,25 @@ angular.module('herowatchApp')
     }
 })
 angular.module('herowatchApp')
-.directive('newsWriterViewer', function() {
+.directive('newsViewer', ['$timeout', function($timeout) {
     return {
-        templateUrl: 'app/newsWriter/newsWriterViewer.html',
+        templateUrl: 'app/news/newsViewer.html',
         restrict: 'AE',
-        controller: function($scope) {
-
-        },
+        controller: function($scope) {},
         link: function( scope, element, attributes ) {
-            scope.title = document.getElementsByClassName("news-title-text")[0]
-            scope.article = document.getElementsByClassName("news-body-text")[0]
-            scope.publish = function() {
-                console.log(scope.title.value)
-                console.log(scope.article.value)
-            }
+            scope.isFetching = true
+            scope.test = "test"
+            var newsDB = firebase.database().ref().child("news")
+            var timeout = setInterval(function() {
+                newsDB.on("value", function(snap) {
+                scope.news = snap.val()
+                scope.isFetching = false
+                scope.$apply()
+                if (!scope.isFetching) clearInterval(timeout)
+            })}, 500)
         }
     }
-})
+}])
 //Manages functions and data associated with the roster page
 
 angular.module('herowatchApp')
@@ -1129,6 +1136,40 @@ angular.module('herowatchApp')
                     else if (scope.roleKey[rA] > scope.roleKey[rB]) return -1
                     else return 1
                 })
+            }
+        }
+    }
+})
+angular.module('herowatchApp')
+.directive('writerViewer', function() {
+    return {
+        templateUrl: 'app/writer/writerViewer.html',
+        restrict: 'AE',
+        controller: function($scope) {
+
+        },
+        link: function( scope, element, attributes ) {
+            scope.title = document.getElementsByClassName("news-title-text")[0]
+            scope.summary = document.getElementsByClassName("news-summary-text")[0]
+            scope.article = document.getElementsByClassName("news-body-text")[0]
+            var newsDB = firebase.database().ref().child("news")
+            newsDB.on("value", function(snap) {
+                if (snap.val()) scope.count = snap.val()[snap.val().length - 1].id
+                else scope.count = 0
+                scope.count++
+            })
+            scope.publish = function() {
+                var news = {
+                    id: scope.count,
+                    title: scope.title.value,
+                    summary: scope.summary.value,
+                    article: scope.article.value
+                }
+                newsDB.child(scope.count).set(news)
+                alert("Your article has been published - check it out on the News page!")
+                scope.title.value = ""
+                scope.summary.value = ""
+                scope.article.value = ""
             }
         }
     }

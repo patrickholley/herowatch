@@ -1,0 +1,6 @@
+<div class="loader" ng-show="isFetching"></div>
+
+<div ng-repeat="news in news" ng-show="!isFetching">
+    <div class="news-title">{{news.title}}</div>
+    <div class="news-article">{{news.summary}}</div>
+</div>

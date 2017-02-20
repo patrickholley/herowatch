@@ -5,10 +5,11 @@ angular.module('herowatchApp')
     return {
         templateUrl: 'app/hero/heroViewer.html',
         restrict: 'AE',
-        controller: function($scope, $stateParams, extraAPI, heroData) {
+        controller: function($scope, $stateParams, $window, extraAPI, heroData) {
             $scope.getLiveRoster = heroData.getLiveRoster()
             $scope.extraAPI = extraAPI.getExtraAPI()
             $scope.id = $stateParams.id
+            if ($scope.id > 23) $scope.id = 23
         },
         link: function( scope, element, attributes ) {
             scope.isFetching = true

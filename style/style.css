@@ -261,8 +261,11 @@ main {
         justify-content:center;
         align-items:center;
         height:50px;
-        width:50px;
     }
+        .nav-links li:hover {
+            background-color:rgb(65, 80, 115);
+            text-decoration:underline;
+        }
     .nav-links a {
         color:white;
     }
@@ -270,6 +273,7 @@ main {
 .news-submit {
     margin:0 auto;
     margin-top:25px;
+    margin-bottom:25px;
     padding-left:10px;
     padding-right:10px;
 }
@@ -290,6 +294,8 @@ main {
     width:89%;
     margin:0 5% 0 5%;
     font-size:1.25rem;
+    background-color: rgba(65, 80, 115, 0.5);
+    color:white;
 }
 
 .role-bar {

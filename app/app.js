@@ -13,9 +13,13 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
                 url:'/hero/:id',
                 templateUrl: "app/hero/hero.html"
             })
-            .state('newsWriter', {
-                url:'/newswriter',
-                templateUrl: "app/newsWriter/newsWriter.html"
+            .state('news', {
+                url:'/news',
+                templateUrl: "app/news/news.html"
+            })
+            .state('writer', {
+                url:'/writer',
+                templateUrl: "app/writer/writer.html"
             })
             .state('article', {
                 url:'/article/:id',
