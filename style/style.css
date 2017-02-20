@@ -163,8 +163,8 @@ main {
 }
 
 .hero-difficulty img {
-    height:40px;
-    width:40px;
+    height:35px;
+    width:35px;
 }
 
 .hero-header {
@@ -208,12 +208,12 @@ main {
 }
 
 .hero-sub-title {
-    font-size:3.5rem;
+    font-size:2.5rem;
 }
 
     .hero-sub-title img {
-        height:40px;
-        width:40px;
+        height:35px;
+        width:35px;
     }
 
 .hero-title {
