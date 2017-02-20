@@ -19,4 +19,4 @@ gulp.task('css', function() {
 gulp.task('default', ['js', 'css']);
 
 gulp.watch('app/**/*.js', ['js']);
-gulp.watch('style/**/*.{css,scss}', ['css']);
+gulp.watch('style/**/*.css', ['css']);
