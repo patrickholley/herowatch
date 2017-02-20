@@ -1032,7 +1032,31 @@ angular.module('herowatchApp').service('heroData', function($http) {
         })
     }
 })
-
+angular.module('herowatchApp')
+.directive('articleViewer', function() {
+    return {
+        templateUrl: 'app/article/articleViewer.html',
+        restrict: 'AE',
+        controller: function($scope, $stateParams, $window, extraAPI, heroData) {
+            $scope.getLiveRoster = heroData.getLiveRoster()
+            $scope.extraAPI = extraAPI.getExtraAPI()
+            $scope.id = $stateParams.id
+        },
+        link: function( scope, element, attributes ) {
+            scope.isFetching = true
+            var newsDB = firebase.database().ref().child("news")
+            var timeout = setInterval(function() {
+                newsDB.on("value", function(snap) {
+                scope.news = snap.val().find(function(news) {
+                    return news.id == scope.id
+                })
+                scope.isFetching = false
+                scope.$apply()
+                if (!scope.isFetching) clearInterval(timeout)
+            })}, 500)
+        }
+    }
+})
 //Directive for manipulating hero pages
 
 angular.module('herowatchApp')
@@ -1078,25 +1102,24 @@ angular.module('herowatchApp')
     }
 })
 angular.module('herowatchApp')
-.directive('newsViewer', ['$timeout', function($timeout) {
+.directive('newsViewer', function() {
     return {
         templateUrl: 'app/news/newsViewer.html',
         restrict: 'AE',
         controller: function($scope) {},
         link: function( scope, element, attributes ) {
             scope.isFetching = true
-            scope.test = "test"
             var newsDB = firebase.database().ref().child("news")
             var timeout = setInterval(function() {
                 newsDB.on("value", function(snap) {
-                scope.news = snap.val()
+                if (snap.val()) scope.news = snap.val().reverse()
                 scope.isFetching = false
                 scope.$apply()
                 if (!scope.isFetching) clearInterval(timeout)
             })}, 500)
         }
     }
-}])
+})
 //Manages functions and data associated with the roster page
 
 angular.module('herowatchApp')
@@ -1155,7 +1178,7 @@ angular.module('herowatchApp')
             var newsDB = firebase.database().ref().child("news")
             newsDB.on("value", function(snap) {
                 if (snap.val()) scope.count = snap.val()[snap.val().length - 1].id
-                else scope.count = 0
+                else scope.count = -1
                 scope.count++
             })
             scope.publish = function() {

@@ -13,7 +13,7 @@ angular.module('herowatchApp')
             var newsDB = firebase.database().ref().child("news")
             newsDB.on("value", function(snap) {
                 if (snap.val()) scope.count = snap.val()[snap.val().length - 1].id
-                else scope.count = 0
+                else scope.count = -1
                 scope.count++
             })
             scope.publish = function() {
