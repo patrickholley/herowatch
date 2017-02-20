@@ -110,13 +110,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                     "is_ultimate": false,
                     "url": "https://overwatch-api.net/api/v1/ability/12"
                 },
-                {
+                /*{
                     "id": 13,
                     "name": "Eject",
                     "description": "D.Va ejects out of her mech when it is destroyed.",
                     "is_ultimate": false,
                     "url": "https://overwatch-api.net/api/v1/ability/13"
-                },
+                },*/
                 {
                     "id": 14,
                     "name": "Self-Destruct",
@@ -168,13 +168,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                     "is_ultimate": false,
                     "url": "https://overwatch-api.net/api/v1/ability/19"
                 },
-                {
+                /*{
                     "id": 20,
                     "name": "Cyber-Agility",
                     "description": "Thanks to his cybernetic abilities, Genji can climb walls and perform jumps in mid-air.",
                     "is_ultimate": false,
                     "url": "https://overwatch-api.net/api/v1/ability/20"
-                },
+                },*/
                 {
                     "id": 21,
                     "name": "Dragonblade",
@@ -212,13 +212,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/24"
                 },
-                {
+                /*{
                 "id": 25,
                 "name": "Wall Climb",
                 "description": "Hanzo can climb any vertical surface.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/25"
-                },
+                },*/
                 {
                 "id": 26,
                 "name": "Dragonstrike",
@@ -300,13 +300,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/34"
                 },
-                {
+                /*{
                 "id": 35,
                 "name": "Wall Ride",
                 "description": "Lúcio rides along a wall. This has a slight upwards angle, allowing him to ascend the wall.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/35"
-                },
+                },*/
                 {
                 "id": 36,
                 "name": "Sound Barrier",
@@ -462,13 +462,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/52"
                 },
-                {
+                /*{
                 "id": 53,
                 "name": "Hover Jets",
                 "description": "Pharah hovers in mid-air.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/53"
-                },
+                },*/
                 {
                 "id": 54,
                 "name": "Barrage",
@@ -506,13 +506,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/57"
                 },
-                {
+                /*{
                 "id": 58,
                 "name": "The Reaping",
                 "description": "Reaper collects souls from fallen enemies to replenish his health.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/58"
-                },
+                },*/
                 {
                 "id": 59,
                 "name": "Death Blossom",
@@ -712,13 +712,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/80"
                 },
-                {
+                /*{
                 "id": 81,
                 "name": "Scrap Collector",
                 "description": "Collect scrap to gain resources.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/81"
-                },
+                },*/
                 {
                 "id": 82,
                 "name": "Armor Pack",
@@ -874,13 +874,13 @@ angular.module('herowatchApp').service('extraAPI', function() {
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/98"
                 },
-                {
+                /*{
                 "id": 99,
                 "name": "Energy",
                 "description": "Damage blocked increases Particle Cannon damage.",
                 "is_ultimate": false,
                 "url": "https://overwatch-api.net/api/v1/ability/99"
-                },
+                },*/
                 {
                 "id": 100,
                 "name": "Graviton Surge",

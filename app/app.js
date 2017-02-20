@@ -9,6 +9,10 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
                 url:'/roster',
                 templateUrl: "app/roster/roster.html"
             })
+            .state('hero', {
+                url:'/hero/:id',
+                templateUrl: "app/hero/hero.html"
+            })
             .state('404', {
                 url:'/404',
                 templateUrl: "app/404.html",

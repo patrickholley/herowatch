@@ -1,1 +1,0 @@
-//Controller for managing functions and data associated with hero pages

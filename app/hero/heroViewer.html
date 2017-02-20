@@ -1,1 +1,39 @@
 <!--Template for a hero page with a short summary of the hero's role and abilities-->
+
+<div class="loader" ng-show="isFetching"></div>
+
+<div class="hero-header bnto">{{hero.name}}</div>
+<section class="hero-info" ng-show="!isFetching">
+    <div class="hero-img"><img class="hero-img" src="{{getPortrait()}}"/></div>
+    <div class="hero-card">
+        <div class="hero-rolediff">
+            <div class="hero-top-item bnto">
+                <p class="hero-title">Role</p>
+                <p class="hero-sub-title">{{heroExtra.role.name}}</p>
+            </div>
+            <div class="hero-top-item bnto">
+                <p class="hero-title">Difficulty</p>
+                <div class="hero-difficulty">
+                    <img src="{{getStar(0)}}"/>
+                    <img src="{{getStar(1)}}"/>
+                    <img src="{{getStar(2)}}"/>
+                </div>
+            </div>
+        </div>
+        <div class="hero-description">{{hero.description}}</div>
+        <div class="hero-abilities">
+            <p class="hero-title bnto">Abilities</p>
+            <div class="hero-ability" ng-repeat="ability in heroExtra.abilities track by $index">
+                <div class="hero-ability-icon-container">
+                    <div class="hero-ability-icon">
+                        <img src="{{getAbilityIcon($index)}}"/>
+                    </div>
+                </div>
+                <div class="hero-ability-info">
+                    <p class="hero-ability-name gib">{{ability.name}}</p>
+                    <p class="hero-ability-description">{{ability.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

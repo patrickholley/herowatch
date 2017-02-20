@@ -14,7 +14,7 @@
 <div class="loader" ng-show="isFetching"></div>
 
 <section class="roster-container">
-    <div class="roster-card" ng-style="{'background-image': 'url({{getProfilePic(hero.id)}})'}"ng-repeat="hero in roster">
+    <div ui-sref="hero({id:hero.id})" class="roster-card" ng-style="{'background-image': 'url({{getProfilePic(hero.id)}})'}"ng-repeat="hero in roster">
         <div class="roster-card-name {{extraAPI[hero.id - 1].role.name}} bnto"><img src='{{getHeroRole(hero)}}'/>{{hero.name}}</div>
     </div>
 </section>
