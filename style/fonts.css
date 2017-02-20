@@ -26,10 +26,10 @@
 
 @font-face {
     font-family: "gib";
-    src: url("/fonts/GlacialIndifference-Bold.WOFF") format('WOFF');
+    src: url("fonts/GlacialIndifference-Bold.WOFF") format('WOFF');
 }
 
 @font-face {
     font-family: "gir";
-    src: url("/fonts/GlacialIndifference-Regular.WOFF") format('WOFF');
+    src: url("fonts/GlacialIndifference-Regular.WOFF") format('WOFF');
 }
