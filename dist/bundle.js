@@ -13,6 +13,18 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
                 url:'/hero/:id',
                 templateUrl: "app/hero/hero.html"
             })
+            .state('news', {
+                url:'/news',
+                templateUrl: "app/news/news.html"
+            })
+            .state('writer', {
+                url:'/writer',
+                templateUrl: "app/writer/writer.html"
+            })
+            .state('article', {
+                url:'/article/:id',
+                templateUrl: "app/article/article.html"
+            })
             .state('404', {
                 url:'/404',
                 templateUrl: "app/404.html",
@@ -21,6 +33,15 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
         $urlRouterProvider.when('', '/')
         $urlRouterProvider.otherwise('/404')
         }))
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAlzEOx7oJEMelSvv65EFPYFdkOTs_e5Zg",
+    authDomain: "herowatch-918cd.firebaseapp.com",
+    databaseURL: "https://herowatch-918cd.firebaseio.com",
+    storageBucket: "herowatch-918cd.appspot.com",
+    messagingSenderId: "932950963938"
+};
+firebase.initializeApp(config);
 angular.module('herowatchApp').service('extraAPI', function() {
     //Do not change liveExtraAPI
     var liveExtraAPI = [
@@ -1011,6 +1032,34 @@ angular.module('herowatchApp').service('heroData', function($http) {
         })
     }
 })
+angular.module('herowatchApp')
+.directive('articleViewer', function() {
+    return {
+        templateUrl: 'app/article/articleViewer.html',
+        restrict: 'AE',
+        controller: function($scope, $stateParams, $window, extraAPI, heroData) {
+            $scope.getLiveRoster = heroData.getLiveRoster()
+            $scope.extraAPI = extraAPI.getExtraAPI()
+            $scope.id = $stateParams.id
+        },
+        link: function( scope, element, attributes ) {
+            scope.isFetching = true
+            var newsDB = firebase.database().ref().child("news")
+            var timeout = setInterval(function() {
+                newsDB.on("value", function(snap) {
+                if (scope.id >= snap.val()[snap.val().length - 1].id) {
+                    scope.id = snap.val()[snap.val().length - 1].id
+                }
+                scope.news = snap.val().find(function(news) {
+                    return news.id == scope.id
+                })
+                scope.isFetching = false
+                scope.$apply()
+                if (!scope.isFetching) clearInterval(timeout)
+            })}, 500)
+        }
+    }
+})
 //Directive for manipulating hero pages
 
 angular.module('herowatchApp')
@@ -1018,10 +1067,11 @@ angular.module('herowatchApp')
     return {
         templateUrl: 'app/hero/heroViewer.html',
         restrict: 'AE',
-        controller: function($scope, $stateParams, extraAPI, heroData) {
+        controller: function($scope, $stateParams, $window, extraAPI, heroData) {
             $scope.getLiveRoster = heroData.getLiveRoster()
             $scope.extraAPI = extraAPI.getExtraAPI()
             $scope.id = $stateParams.id
+            if ($scope.id > 23) $scope.id = 23
         },
         link: function( scope, element, attributes ) {
             scope.isFetching = true
@@ -1051,6 +1101,25 @@ angular.module('herowatchApp')
                 }
                 scope.getRole = function() { return "img/" + scope.extraAPI[scope.hero.id - 1].role.name + ".png" }
             })
+        }
+    }
+})
+angular.module('herowatchApp')
+.directive('newsViewer', function() {
+    return {
+        templateUrl: 'app/news/newsViewer.html',
+        restrict: 'AE',
+        controller: function($scope) {},
+        link: function( scope, element, attributes ) {
+            scope.isFetching = true
+            var newsDB = firebase.database().ref().child("news")
+            var timeout = setInterval(function() {
+                newsDB.on("value", function(snap) {
+                if (snap.val()) scope.news = snap.val().reverse()
+                scope.isFetching = false
+                scope.$apply()
+                if (!scope.isFetching) clearInterval(timeout)
+            })}, 500)
         }
     }
 })
@@ -1093,6 +1162,40 @@ angular.module('herowatchApp')
                     else if (scope.roleKey[rA] > scope.roleKey[rB]) return -1
                     else return 1
                 })
+            }
+        }
+    }
+})
+angular.module('herowatchApp')
+.directive('writerViewer', function() {
+    return {
+        templateUrl: 'app/writer/writerViewer.html',
+        restrict: 'AE',
+        controller: function($scope) {
+
+        },
+        link: function( scope, element, attributes ) {
+            scope.title = document.getElementsByClassName("news-title-text")[0]
+            scope.summary = document.getElementsByClassName("news-summary-text")[0]
+            scope.article = document.getElementsByClassName("news-body-text")[0]
+            var newsDB = firebase.database().ref().child("news")
+            newsDB.on("value", function(snap) {
+                if (snap.val()) scope.count = snap.val()[snap.val().length - 1].id
+                else scope.count = -1
+                scope.count++
+            })
+            scope.publish = function() {
+                var news = {
+                    id: scope.count,
+                    title: scope.title.value,
+                    summary: scope.summary.value,
+                    article: scope.article.value
+                }
+                newsDB.child(scope.count).set(news)
+                alert("Your article has been published - check it out on the News page!")
+                scope.title.value = ""
+                scope.summary.value = ""
+                scope.article.value = ""
             }
         }
     }

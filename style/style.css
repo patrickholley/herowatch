@@ -21,6 +21,26 @@ main {
     100% { transform: rotate(360deg); }
 }
 
+.article {
+    width:95%;
+    background-color:rgba(65, 80, 115, 0.85);
+    margin:2.5%;
+    border-radius:5px;
+}
+
+.article-title {
+    font-size:3.5rem;
+    color:rgb(0, 190, 255);
+    text-transform:uppercase;
+    text-align:center;
+}
+
+.article-body {
+    color:white;
+    padding:2.5%;
+    line-height:200%;
+}
+
 .blizz-logo img {
     height:60px;
     width:120px;
@@ -261,11 +281,60 @@ main {
         justify-content:center;
         align-items:center;
         height:50px;
-        width:50px;
     }
+        .nav-links li:hover {
+            background-color:rgb(65, 80, 115);
+            text-decoration:underline;
+        }
     .nav-links a {
         color:white;
     }
+
+.news-piece {
+    background-color:rgba(65, 80, 115, 0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow:column;
+    border-bottom:1px solid rgb(130, 130, 130);
+    border-top:1px solid rgb(130, 130, 130);
+    padding:10px 25px;
+    color:white;
+}
+
+.news-submit {
+    margin:0 auto;
+    margin-top:25px;
+    margin-bottom:25px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.news-title {
+    text-transform:uppercase;
+    font-size:1.5rem;
+    padding-bottom:10px;
+}
+
+.news-writer {
+    justify-content:center;
+}
+
+.news-writer h1 {
+    text-align:center;
+    color:rgb(65, 80, 115);
+    font-size:2.5rem;
+}
+
+.news-writer textarea {
+    display:flex;
+    align-items:flex-start;
+    width:89%;
+    margin:0 5% 0 5%;
+    font-size:1.25rem;
+    background-color: rgba(65, 80, 115, 0.5);
+    color:white;
+}
 
 .role-bar {
     display:flex;
