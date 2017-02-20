@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "bnto";
-    src: url("fonts/big_noodle_titling_oblique.woff") format('woff');
+    src: url("fonts/big_noodle_titling_oblique.WOFF") format('woff');
 }
 
 @font-face {
@@ -26,10 +26,10 @@
 
 @font-face {
     font-family: "gib";
-    src: url("/fonts/GlacialIndifference-Bold.woff") format('woff');
+    src: url("/fonts/GlacialIndifference-Bold.WOFF") format('woff');
 }
 
 @font-face {
     font-family: "gir";
-    src: url("/fonts/GlacialIndifference-Regular.woff") format('woff');
+    src: url("/fonts/GlacialIndifference-Regular.WOFF") format('woff');
 }
