@@ -13,6 +13,14 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
                 url:'/hero/:id',
                 templateUrl: "app/hero/hero.html"
             })
+            .state('newsWriter', {
+                url:'/newswriter',
+                templateUrl: "app/newsWriter/newsWriter.html"
+            })
+            .state('article', {
+                url:'/article/:id',
+                templateUrl: "app/article/article.html"
+            })
             .state('404', {
                 url:'/404',
                 templateUrl: "app/404.html",
@@ -21,6 +29,15 @@ angular.module('herowatchApp', ['firebase', 'ui.router'])
         $urlRouterProvider.when('', '/')
         $urlRouterProvider.otherwise('/404')
         }))
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAlzEOx7oJEMelSvv65EFPYFdkOTs_e5Zg",
+    authDomain: "herowatch-918cd.firebaseapp.com",
+    databaseURL: "https://herowatch-918cd.firebaseio.com",
+    storageBucket: "herowatch-918cd.appspot.com",
+    messagingSenderId: "932950963938"
+};
+firebase.initializeApp(config);
 angular.module('herowatchApp').service('extraAPI', function() {
     //Do not change liveExtraAPI
     var liveExtraAPI = [
@@ -1011,6 +1028,7 @@ angular.module('herowatchApp').service('heroData', function($http) {
         })
     }
 })
+
 //Directive for manipulating hero pages
 
 angular.module('herowatchApp')
@@ -1051,6 +1069,24 @@ angular.module('herowatchApp')
                 }
                 scope.getRole = function() { return "img/" + scope.extraAPI[scope.hero.id - 1].role.name + ".png" }
             })
+        }
+    }
+})
+angular.module('herowatchApp')
+.directive('newsWriterViewer', function() {
+    return {
+        templateUrl: 'app/newsWriter/newsWriterViewer.html',
+        restrict: 'AE',
+        controller: function($scope) {
+
+        },
+        link: function( scope, element, attributes ) {
+            scope.title = document.getElementsByClassName("news-title-text")[0]
+            scope.article = document.getElementsByClassName("news-body-text")[0]
+            scope.publish = function() {
+                console.log(scope.title.value)
+                console.log(scope.article.value)
+            }
         }
     }
 })

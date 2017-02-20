@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 
 gulp.task('js', function() {
-  gulp.src(['app/app.js', 'app/**/*.js'])
+  gulp.src(['app/app.js', 'app/firebaseConfig.js', 'app/**/*.js'])
   .pipe(concat('bundle.js'))
   .pipe(gulp.dest('./dist'));
 });
