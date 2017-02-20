@@ -16,20 +16,20 @@
 
 @font-face {
     font-family: "bnto";
-    src: url("../../herowatch/fonts/big_noodle_titling_oblique.woff") format('woff');
+    src: url("../../../herowatch/fonts/big_noodle_titling_oblique.woff") format('woff');
 }
 
 @font-face {
     font-family: "bnt";
-    src: url("../../herowatch/fonts/big_noodle_titling.WOFF") format('woff');
+    src: url("../fonts/big_noodle_titling.WOFF") format('woff');
 }
 
 @font-face {
     font-family: "gib";
-    src: url("../../herowatch/fonts/GlacialIndifference-Bold.woff") format('woff');
+    src: url("../fonts/GlacialIndifference-Bold.woff") format('woff');
 }
 
 @font-face {
     font-family: "gir";
-    src: url("../../herowatch/fonts/GlacialIndifference-Regular.woff") format('woff');
+    src: url("../fonts/GlacialIndifference-Regular.woff") format('woff');
 }
