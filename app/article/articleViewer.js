@@ -13,6 +13,9 @@ angular.module('herowatchApp')
             var newsDB = firebase.database().ref().child("news")
             var timeout = setInterval(function() {
                 newsDB.on("value", function(snap) {
+                if (scope.id >= snap.val()[snap.val().length - 1].id) {
+                    scope.id = snap.val()[snap.val().length - 1].id
+                }
                 scope.news = snap.val().find(function(news) {
                     return news.id == scope.id
                 })
