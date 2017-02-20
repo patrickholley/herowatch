@@ -9,7 +9,7 @@
         <div class="hero-rolediff">
             <div class="hero-top-item bnto">
                 <p class="hero-title">Role</p>
-                <p class="hero-sub-title">{{heroExtra.role.name}}</p>
+                <p class="hero-sub-title">{{heroExtra.role.name}}<img src="{{getRole()}}"/></p>
             </div>
             <div class="hero-top-item bnto">
                 <p class="hero-title">Difficulty</p>
@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero-description">{{hero.description}}</div>
+        <div class="hero-description">{{getHeroDescription()}}</div>
         <div class="hero-abilities">
             <p class="hero-title bnto">Abilities</p>
             <div class="hero-ability" ng-repeat="ability in heroExtra.abilities track by $index">

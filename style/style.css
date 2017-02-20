@@ -131,9 +131,10 @@ main {
 }
 
 .hero-ability-info {
-    width:75%;
+    width:70%;
     margin:0 auto;
     margin-bottom:5%;
+    margin-left:5%;
 }
 
 .hero-ability-name {
@@ -149,8 +150,8 @@ main {
     width:42%;
     height:1%;
     padding:1%;
-    margin:2.5%;
-    color:rgb(210, 210, 235);
+    margin:0 2.5% 2.5% 2.5%;
+    color:rgb(220, 220, 240);
 }
 
 .hero-description {
@@ -180,8 +181,8 @@ main {
 .hero-img {
     display:flex;
     justify-content:center;
-    max-width:858px;
-    max-height:797px;
+    max-width:600px;
+    max-height:800px;
     min-width:215px;
     min-height:200px;
     margin:auto;
@@ -209,6 +210,11 @@ main {
 .hero-sub-title {
     font-size:3.5rem;
 }
+
+    .hero-sub-title img {
+        height:40px;
+        width:40px;
+    }
 
 .hero-title {
     color:rgb(0, 190, 255);

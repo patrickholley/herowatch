@@ -32,6 +32,11 @@ angular.module('herowatchApp')
                     if (position < scope.hero.difficulty) { star = "gold" }
                     return "img/" + star + "star.png"
                 }
+                scope.getHeroDescription = function() {
+                    if (scope.hero.name != "Tracer") return scope.hero.description
+                    else return "Toting twin pulse pistols, energy-based time bombs, and rapid-fire banter, Tracer is able to \"blink\" through space and rewind her personal timeline as she battles to right wrongs the world over."
+                }
+                scope.getRole = function() { return "img/" + scope.extraAPI[scope.hero.id - 1].role.name + ".png" }
             })
         }
     }
