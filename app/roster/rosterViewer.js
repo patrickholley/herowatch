@@ -14,6 +14,7 @@ angular.module('herowatchApp')
             scope.isFetching = true
             scope.getLiveRoster.then(function(response) {
                 scope.roster = response.data.data
+                while (scope.roster.length > 23) scope.roster.pop()
                 scope.sortRoster('all')
                 scope.isFetching = false
             })
